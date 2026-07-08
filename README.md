@@ -4,7 +4,7 @@
 
 ## Sobre o Projeto
 
-CodeReviewer é uma aplicação console que utiliza inteligência artificial (OpenAI GPT-4) para realizar revisões automatizadas de código C# .NET. O projeto implementa um agente especializado chamado **DotNet Sentinel v1**, que analisa código seguindo as melhores práticas de desenvolvimento, princípios SOLID e Clean Code.
+CodeReviewer é uma aplicação console que utiliza inteligência artificial para realizar revisões automatizadas de código C# .NET. O projeto implementa um agente especializado chamado **DotNet Sentinel v1**, que analisa código seguindo as melhores práticas de desenvolvimento, princípios SOLID e Clean Code.
 
 ## Características
 
@@ -19,63 +19,8 @@ CodeReviewer é uma aplicação console que utiliza inteligência artificial (Op
 
 - **.NET 10**: Framework principal
 - **Microsoft.Agents.AI**: Framework de agentes IA da Microsoft
-- **OpenAI GPT-4o-mini**: Modelo de linguagem para análise
+- **OllamaSharp**: Cliente para comunicação com o servidor Ollama
 - **User Secrets**: Gerenciamento seguro de credenciais
-
-## Pré-requisitos
-
-- [.NET 10 SDK](https://dotnet.microsoft.com/download)
-- Conta na [OpenAI Platform](https://platform.openai.com/)
-- Visual Studio 2026 ou Visual Studio Code
-
-## Configuração
-
-### 1. Clone o repositório
-
-```bash
-git clone https://github.com/sorza/CodeReviewer.git
-cd CodeReviewer
-```
-
-### 2. Configure a API Key da OpenAI
-
-#### Visual Studio:
-1. Clique com botão direito no projeto
-2. Selecione **Manage User Secrets**
-3. Adicione a configuração:
-
-```json
-{
-  "OpenAI:ApiKey": "sua-api-key-aqui"
-}
-```
-
-#### Via CLI:
-```bash
-dotnet user-secrets set "OpenAI:ApiKey" "sua-api-key-aqui"
-```
-
-> ** Nota**: Obtenha sua API Key em https://platform.openai.com/api-keys
-
-### 3. Restaure as dependências
-
-```bash
-dotnet restore
-```
-
-##  Como Usar
-
-### 1. Adicione o código a ser revisado
-
-Edite o arquivo `Agents/code.txt` com o código C# que deseja analisar.
-
-### 2. Execute a aplicação
-
-```bash
-dotnet run
-```
-
-A revisão será exibida em tempo real no console com streaming de resposta.
 
 
 ##  Funcionamento do Agente
@@ -89,41 +34,3 @@ O **DotNet Sentinel v1** segue um fluxo de trabalho estruturado:
    -  O que está bom
    -  O que deve mudar
    -  Por que deve mudar
-
-##  Exemplo de Saída
-
-```json
-{
-  "OverallScore": 45,
-  "Grade": "C-",
-  "Summary": "O código funciona, mas possui riscos de segurança...",
-  "Strengths": [
-    "Uso correto de namespaces",
-    "Nomes de variáveis claros"
-  ],
-  "Improvements": [
-    "Remover SQL Injection",
-    "Implementar async/await",
-    "Remover credenciais do código"
-  ],
-  "CodeExamples": ["..."],
-  "NextSteps": [
-    "Criar interface IRepository",
-    "Configurar segredos no Key Vault"
-  ],
-  "Encouragement": "Bom trabalho na lógica central!"
-}
-```
-
-## Segurança
-
--  Usa **User Secrets** para armazenar API Keys
--  Não armazena credenciais em código
--  Detecta e alerta sobre strings suspeitas (tokens, connection strings)
-
-### Debug
-
-```bash
-dotnet build
-dotnet run
-```
