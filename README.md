@@ -77,17 +77,6 @@ dotnet run
 
 A revisão será exibida em tempo real no console com streaming de resposta.
 
-## Estrutura do Projeto
-
-```
-CodeReviewer/
-├── Agents/
-│   ├── code_reviewer.md    # Configuração do agente revisor
-│   └── code.txt            # Código a ser analisado
-├── Program.cs              # Ponto de entrada da aplicação
-├── CodeReviewer.csproj     # Arquivo de projeto
-└── README.md
-```
 
 ##  Funcionamento do Agente
 
@@ -131,33 +120,6 @@ O **DotNet Sentinel v1** segue um fluxo de trabalho estruturado:
 -  Usa **User Secrets** para armazenar API Keys
 -  Não armazena credenciais em código
 -  Detecta e alerta sobre strings suspeitas (tokens, connection strings)
-
-##  Solução de Problemas
-
-### Erro: HTTP 429 (insufficient_quota)
-
-**Causa**: Sem créditos na conta OpenAI
-
-**Solução**:
-1. Acesse https://platform.openai.com/usage
-2. Verifique seu saldo e limites
-3. Configure billing em https://platform.openai.com/settings/organization/billing/overview
-
-### Erro: DirectoryNotFoundException
-
-**Causa**: Arquivos da pasta `Agents/` não copiados para saída
-
-**Solução**: Já corrigido no `.csproj` com `CopyToOutputDirectory="PreserveNewest"`
-
-## Desenvolvimento
-
-### Dependências
-
-```xml
-<PackageReference Include="Microsoft.Agents.AI" Version="1.13.0" />
-<PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.13.0" />
-<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.9" />
-```
 
 ### Debug
 
