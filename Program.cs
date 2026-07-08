@@ -1,24 +1,22 @@
 ﻿using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using OllamaSharp;
+using Microsoft.Extensions.Configuration;
+using OpenAI;
+using OpenAI.Chat;
 
 const string agentMarkdownPath = "Agents/code_reviewer.md";
 const string codePath = "Agents/code.txt";
-const string ollamaUrl = "http://localhost:11434";
-const string model = "qwen2.5-coder:7b";
+const string model = "gpt-4o-mini";
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 
-var handler = new HttpClientHandler();
-var httpClient = new HttpClient(handler)
-{
-    BaseAddress = new Uri(ollamaUrl),
-    Timeout = TimeSpan.FromMinutes(5)
-};
+var openAiApiKey = config["OpenAI:ApiKey"];
+var openAi = new OpenAIClient(openAiApiKey);
 
-var ollama = new OllamaApiClient(httpClient);
 var instructions = File.ReadAllText(agentMarkdownPath);
 var code = File.ReadAllText(codePath);
 
-var codeReviewerAgent = ollama
+var codeReviewerAgent = openAi
+    .GetChatClient(model)
     .AsAIAgent(new ChatClientAgentOptions
     {
         Name = "CodeReviewerAgent",

@@ -5,15 +5,18 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>2950c7ad-8b32-4f38-ab0b-ceb8ccd7d3f5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Agents\code_reviewer.md" />
+    <None Include="Agents\code_reviewer.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Agents\code.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Agents.AI" Version="1.9.0" />
-    <PackageReference Include="OllamaSharp" Version="5.4.25" />
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.13.0" />
+    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.13.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.9" />
   </ItemGroup>
 
 </Project>
