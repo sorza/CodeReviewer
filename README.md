@@ -8,12 +8,12 @@ CodeReviewer é uma aplicação console que utiliza inteligência artificial (Op
 
 ## Características
 
-- 🤖 **Agente IA Especializado**: Revisor sênior focado em C# e .NET
-- 🔒 **Análise de Segurança**: Detecta vulnerabilidades como SQL Injection, credenciais expostas e XSS
-- ⚡ **Verificação de Performance**: Identifica gargalos e códigos não otimizados
-- 📐 **Padrões de Design**: Valida implementação de Repository, Unit of Work e Dependency Injection
-- 📊 **Relatório Estruturado**: Saída detalhada com pontuação, pontos fortes e melhorias necessárias
-- 🎯 **Foco em .NET 10**: Sugestões alinhadas com as funcionalidades mais modernas do C# 14
+-  **Agente IA Especializado**: Revisor sênior focado em C# e .NET
+-  **Análise de Segurança**: Detecta vulnerabilidades como SQL Injection, credenciais expostas e XSS
+-  **Verificação de Performance**: Identifica gargalos e códigos não otimizados
+-  **Padrões de Design**: Valida implementação de Repository, Unit of Work e Dependency Injection
+-  **Relatório Estruturado**: Saída detalhada com pontuação, pontos fortes e melhorias necessárias
+-  **Foco em .NET 10**: Sugestões alinhadas com as funcionalidades mais modernas do C# 14
 
 ## Tecnologias
 
@@ -89,7 +89,7 @@ CodeReviewer/
 └── README.md
 ```
 
-## 🧠 Funcionamento do Agente
+##  Funcionamento do Agente
 
 O **DotNet Sentinel v1** segue um fluxo de trabalho estruturado:
 
@@ -97,11 +97,11 @@ O **DotNet Sentinel v1** segue um fluxo de trabalho estruturado:
 2. **Verificação de Padrões**: Compara com design patterns estabelecidos
 3. **Avaliação de Performance**: Detecta gargalos e otimizações possíveis
 4. **Feedback Estruturado**: Gera relatório com:
-   - ✅ O que está bom
-   - ⚠️ O que deve mudar
-   - 💡 Por que deve mudar
+   -  O que está bom
+   -  O que deve mudar
+   -  Por que deve mudar
 
-## 📊 Exemplo de Saída
+##  Exemplo de Saída
 
 ```json
 {
