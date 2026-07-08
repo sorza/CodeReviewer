@@ -3,7 +3,7 @@ using Microsoft.Extensions.AI;
 using OllamaSharp;
 
 const string agentMarkdownPath = "Agents/code_reviewer.md";
-const string codePath = "Agents/code.md";
+const string codePath = "Agents/code.txt";
 const string ollamaUrl = "http://localhost:11434";
 const string model = "qwen2.5-coder:7b";
 
@@ -11,7 +11,7 @@ var handler = new HttpClientHandler();
 var httpClient = new HttpClient(handler)
 {
     BaseAddress = new Uri(ollamaUrl),
-    Timeout = TimeSpan.FromMinutes(2)
+    Timeout = TimeSpan.FromMinutes(5)
 };
 
 var ollama = new OllamaApiClient(httpClient);
@@ -31,3 +31,9 @@ var codeReviewerAgent = ollama
         }
     });
 
+/*
+var result = await codeReviewerAgent.RunAsync(code);
+Console.WriteLine(result);*/
+
+await foreach(var token in codeReviewerAgent.RunStreamingAsync(code))
+    Console.Write(token);
