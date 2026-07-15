@@ -1,36 +1,27 @@
 # CodeReviewer
 
-> Um agente inteligente de revisão de código C# .NET alimentado por IA
+Exemplo acadêmico de agente construído com **Microsoft Agent Framework (MAF)** para revisão de código.  
+O objetivo é demonstrar como agentes podem analisar trechos de código, identificar problemas e sugerir melhorias de forma estruturada.
 
-## Sobre o Projeto
+## Visão Geral
 
-CodeReviewer é uma aplicação console que utiliza inteligência artificial para realizar revisões automatizadas de código C# .NET. O projeto implementa um agente especializado chamado **DotNet Sentinel v1**, que analisa código seguindo as melhores práticas de desenvolvimento, princípios SOLID e Clean Code.
+O **CodeReviewer** foi desenvolvido como um agente de estudo para mostrar o uso de MAF em cenários de revisão de código.  
+Ele recebe trechos de código como entrada, aplica regras de análise e retorna uma saída estruturada com comentários e sugestões.
 
-## Características
+## Funcionalidades
 
--  **Agente IA Especializado**: Revisor sênior focado em C# e .NET
--  **Análise de Segurança**: Detecta vulnerabilidades como SQL Injection, credenciais expostas e XSS
--  **Verificação de Performance**: Identifica gargalos e códigos não otimizados
--  **Padrões de Design**: Valida implementação de Repository, Unit of Work e Dependency Injection
--  **Relatório Estruturado**: Saída detalhada com pontuação, pontos fortes e melhorias necessárias
--  **Foco em .NET 10**: Sugestões alinhadas com as funcionalidades mais modernas do C# 14
+- **Análise automática de código**: identifica problemas comuns e boas práticas.
+- **Saída estruturada**: fornece feedback organizado em categorias (erros, alertas, sugestões).
+- **Integração com MAF**: utiliza middlewares e extensões do framework.
+- **Exemplo acadêmico**: ideal para aprendizado e demonstração de agentes inteligentes.
 
-## Tecnologias
+// Exemplo de entrada
+string nome = null;
+Console.WriteLine(nome.Length);
 
-- **.NET 10**: Framework principal
-- **Microsoft.Agents.AI**: Framework de agentes IA da Microsoft
-- **OllamaSharp**: Cliente para comunicação com o servidor Ollama
-- **User Secrets**: Gerenciamento seguro de credenciais
+// Saída esperada
+{
+  "erros": ["Possível NullReferenceException ao acessar 'nome.Length'"],
+  "sugestoes": ["Adicionar verificação de null antes de acessar a propriedade"]
+}
 
-
-##  Funcionamento do Agente
-
-O **DotNet Sentinel v1** segue um fluxo de trabalho estruturado:
-
-1. **Análise Estática**: Identifica erros de sintaxe e violações de estilo
-2. **Verificação de Padrões**: Compara com design patterns estabelecidos
-3. **Avaliação de Performance**: Detecta gargalos e otimizações possíveis
-4. **Feedback Estruturado**: Gera relatório com:
-   -  O que está bom
-   -  O que deve mudar
-   -  Por que deve mudar
